@@ -5,12 +5,8 @@ RUN apk add --no-cache libstdc++ \
 
 ARG GRPC_VERSION=v1.12.x
 RUN git clone --depth 1 --branch $GRPC_VERSION https://github.com/grpc/grpc /tmp/grpc
-# COPY grpc /tmp/grpc
-RUN (cd /tmp/grpc \
-    && git submodule update --init --recursive \
-    && (cd third_party/protobuf && ./autogen.sh && ./configure && make install) \
-    && make \
-    && make install \
-    ) && rm -rf /tmp/grpc
- 
 
+WORKDIR /tmp/grpc
+RUN git submodule update --init --recursive
+RUN (cd third_party/protobuf && ./autogen.sh && ./configure && make install)
+RUN make && make install && rm -rf /tmp/grpc

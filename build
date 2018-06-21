@@ -1,0 +1,8 @@
+#!/bin/bash
+repo=yoanlin/alpine-grpc-dev
+for dockerfile in */Dockerfile ; do
+    dir=$(dirname $dockerfile)
+    tag=$dir
+    docker build --tag $repo:$tag $dir
+done
+docker push $repo
