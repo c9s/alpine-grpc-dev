@@ -1,4 +1,5 @@
-FROM alpine:3.7
+FROM yoanlin/boost-dev:alpine-3.7
+
 RUN apk add --no-cache libstdc++ \
  && apk add --no-cache --update git make g++ unzip autoconf automake libtool file openssl curl
 
