@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e -x
 repo=yoanlin/alpine-grpc-dev
 for dockerfile in */Dockerfile ; do
     dir=$(dirname $dockerfile)
