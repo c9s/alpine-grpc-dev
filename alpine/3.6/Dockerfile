@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.6
 RUN apk add --no-cache libstdc++ \
  && apk add --no-cache --update git make g++ unzip autoconf automake libtool file openssl curl
 
@@ -11,5 +11,3 @@ RUN (cd /tmp/grpc \
     && make \
     && make install \
     ) && rm -rf /tmp/grpc
- 
-
