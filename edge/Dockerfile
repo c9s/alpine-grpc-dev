@@ -1,4 +1,4 @@
-FROM yoanlin/boost-dev:alpine-edge
+FROM yoanlin/alpine-boost-dev:edge
 
 RUN apk add --no-cache libstdc++ \
  && apk add --no-cache --update git make g++ unzip autoconf automake libtool file openssl curl
